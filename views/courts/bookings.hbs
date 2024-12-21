@@ -1,0 +1,18 @@
+<section>
+   
+    <h3>Courts bookings</h3>
+    <h5>The following list contains all your future bookings</h5>
+    {{#each userBookings}}
+<ul>
+    
+    <li>{{this.courtName}} , on the {{this.dateBooking}}</li>
+    <form method="post"action="/courts/unbook">
+    <input name="idCourt" type="hidden"value={{this.court_id}}>
+    <input name="date" type="hidden"value={{this.dateBooking}}>
+    <input type="submit"value="unbook">
+    </form>
+</ul>
+{{/each}}
+
+
+</section>

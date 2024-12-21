@@ -1,0 +1,105 @@
+#position{
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 70px;
+}
+
+
+h1{
+    text-align: center;
+}
+
+nav{
+    border: 1px solid #f5f5dc;
+    padding: 3px; 
+    background-color: #f5f5dc;
+    
+}
+a:hover {
+   color: rgb(98, 96, 59);
+}
+li{
+    color: rgb(76, 75, 30);  
+}
+
+
+header nav ul li {
+    display: inline;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: medium;
+}
+  
+
+.authlink {
+    float: right;
+}
+  
+
+
+#image_tournament_details{
+    height: 250px;
+    width: 250px;
+}
+
+.courtImage{
+    height: 200px;
+    width: 300px;
+}
+
+
+
+.frame{
+    background-color: beige;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto; 
+    padding: 20px;
+    border: 2px solid #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+table{
+    width: 80%; 
+    border-collapse: collapse; 
+    border: 1px solid #ccc; 
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+
+  th {
+    background-color: #f2f2f2; 
+    font-weight: bold; 
+    padding: 8px; 
+    border: 1px solid #ccc; 
+  }
+  
+  
+  td {
+    padding: 8px; 
+    border: 1px solid #ccc; 
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9; 
+  }
+  
+  
+  
+#footer{
+    font-family: "Gagalin", sans-serif;
+    text-align:center;
+    background-color: #f5f5dc;
+    height: 110px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 150px;
+}
+
+
+
+

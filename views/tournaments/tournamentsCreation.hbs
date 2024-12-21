@@ -1,0 +1,52 @@
+{{#if session.coach}}
+
+  <section>
+    
+    
+    <div class="frame">
+      <h1>Create a Tournament</h1>
+      <form
+      action="/tournaments/create"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <label for="name">Tournament name : </label>
+      <input type="text" name="tournamentName" /><br />
+      <label for="TournamentDate"> Tournament date : </label>
+      <input type="date" name="tournamentDate" /><br />
+      <label for="Number max of participants">Number max of participants :
+      </label>
+      <input type="number" name="number" value="20" /><br />
+      <label for="Tournament image">Tournament image : </label>
+      <input type="file" name="ImageTournament" />
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
+    </div>
+
+    
+
+    {{#if tableError}}
+
+      <div class="container mt-5">
+        <h4>Errors : </h4>
+        <div class="alert alert-warning" role="alert">
+          {{#each tableError}}
+            <p>{{this}}</p>
+          {{/each}}
+        </div>
+      </div>
+
+    {{/if}}
+  </section>
+{{else}}
+
+  <div class="container mt-5">
+    <h4>Errors : </h4>
+    <div class="alert alert-warning text-center" role="alert">
+      <p>You are not a coach !</p>
+
+    </div>
+  </div>
+
+{{/if}}

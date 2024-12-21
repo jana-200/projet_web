@@ -1,0 +1,78 @@
+<section>
+
+  <div class="container mt-3">
+    <h1>Register</h1>
+    <form method="post" action="/users/create">
+      <div class="mb-3 mt-3">
+        <label for="firstname" class="form-label">First name :</label>
+        <input
+          type="text"
+          class="form-control"
+          id="firstname"
+          placeholder="Enter First name"
+          name="firstname"
+        />
+      </div>
+
+      <div class="mb-3 mt-3">
+        <label for="lastname" class="form-label">Last name :</label>
+        <input
+          type="text"
+          class="form-control"
+          id="lastname"
+          placeholder="Enter Last name"
+          name="lastname"
+        />
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="email" class="form-label">Email:</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Enter email"
+          name="email"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="pwd" class="form-label">Password:</label>
+        <input
+          type="password"
+          class="form-control"
+          id="pwd"
+          placeholder="Enter password"
+          name="password"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="pwd" class="form-label"> Confirmation password:</label>
+        <input
+          type="password"
+          class="form-control"
+          id="pwdConfirmation"
+          placeholder="Enter password confirmation"
+          name="confirmationPassword"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+  </div>
+  <div>
+
+    {{#if mistakes}}
+
+      <div class="container mt-5">
+        <h4>Errors :</h4>
+        <div class="alert alert-warning" role="alert">
+          {{#each mistakes}}
+            <p>{{this}}</p>
+          {{/each}}
+        </div>
+      </div>
+    {{/if}}
+  </div>
+
+</section>

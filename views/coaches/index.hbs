@@ -1,0 +1,23 @@
+<section> 
+  <h1>Our coaches</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each coachesList}}
+        <tr>
+          <td> {{firstname}} </td>
+          <td> <a href="/coaches/details?id={{this.user_id}}" >{{surname}}</td>        
+          <td>{{email}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+</section>
+

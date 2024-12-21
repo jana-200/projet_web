@@ -1,0 +1,56 @@
+<section>
+
+
+   {{#if errorBis}}
+    <div class="container mt-5">
+    <div class="alert alert-warning text-center" role="alert">
+      <p> {{errorBis}}</p>     
+    </div>
+    </div>
+  
+  {{/if}}
+  {{#if error}}
+   <div class="container mt-5">
+    <div class="alert alert-warning text-center" role="alert">
+      <p> {{error}}</p>     
+    </div>
+  </div>
+
+  {{else}}
+<h3>Court details</h3>
+
+<h6>Name : {{details.courtName}}</h6>
+<br>
+<h6>Flooring type : {{details.flooringType}}</h6>
+<br>
+<h6>Location : {{details.courtLocation}}</h6>
+
+
+<img  class="imageDetails" src="{{details.picturePath}}" alt="Image of the court">
+
+
+{{#if session.user}}
+<div>
+  <br>
+<h4>Book court</h4>
+<form method="post" action="/courts/book">
+ <label for="day">Which day would you like to book the court:</label>
+  <select  name="day">
+    {{#each dataToSend}}
+    <option value="{{this.delta}}">{{this.day}} {{this.date}}</option>
+    
+    {{/each}}
+  </select>
+ <input type="submit" value="Book"/>
+ <input name="usId"type="hidden" value="{{details.court_id}}">
+
+</form>
+</div>
+{{/if}}
+{{/if}}
+
+
+
+
+
+</section>

@@ -1,0 +1,34 @@
+<section>
+
+<h2> Court list </h2>
+<p>Welcome to our court list page, this page is dedicated to the presentation of our different courts </p>
+
+
+<table>
+    <tr>
+<th>Court name</th>
+<th>Flooring type</th>
+<th> </th>
+
+    </tr>
+{{#each courtsTable}}
+<tr>
+<td><a href="http://localhost:3000/courts/details?id={{this.court_id}}"> {{this.courtName}}</a></td>
+<td>{{this.flooringType}}</td>
+{{#if ../displayButtonUpdate }}
+<div>
+  <td>
+    <form method="get" action="/courts/update?idOfCourt={{this.court_id}}">
+    <input type="submit" value="Update">
+    <input name="idOfCourt" type="hidden" value="{{this.court_id}}" >
+    </form>
+</td>  
+</div>
+{{/if}}
+
+</tr>
+
+{{/each}}
+</table>
+
+</section>

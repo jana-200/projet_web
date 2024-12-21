@@ -1,0 +1,56 @@
+<section>
+ {{#if session.coachDetailsErrors}}
+
+  <div class="container mt-5">
+    <div class="alert alert-warning text-center" role="alert">
+      <p> {{session.coachDetailsErrors}}</p>     
+    </div>
+  </div>
+     
+ {{else}}                      
+<div class="container-fluid py-5">
+  <div class="row">
+    <div class="col-6 col-md-12 col-lg-14 col-xl-10 mx-auto">
+      <div class="card w-100" style="border-radius: 13px;">
+        <div class="card-body p-4">
+          <div class="d-flex text-black">
+            <div class="flex-shrink-0">
+              <img src="{{coachDetails.pic}}"
+                alt="Generic placeholder image" class="img-fluid"
+                style="width: 360px; border-radius: 10px;">
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <h5 class="mb-1">{{coachDetails.firstname}} {{coachDetails.surname}}</h5>
+              <br>
+              <span><strong>Email:</strong> {{coachDetails.email}}</span>
+              <hr>
+              <span><strong>  things you should know about this coach :</strong></span>
+              <div class="d-flex justify-content-start rounded-3 p-2 mb-2" style="background-color: #efefef;">
+                <p>{{coachDetails.bio}}</p>
+              </div>
+              {{#if session.coach}}
+                {{#if session.canUpdate}}
+                <form action = "/coaches/updateBio" method = "get">
+                    <input type="hidden" name="id" value={{coachDetails.id}}>
+                    <button type="submit" class="btn btn-primary flex-grow-1">update you biography</button>
+                </form>
+                {{/if}}
+            
+              {{else}}
+              {{#if session.user}}
+               <form action="/coaches/sendTo" method="post">
+                  <input type="hidden" name="id" value="{{coachDetails.id}}">
+                  <input type="text" name="message" placeholder="Enter your message here...">
+                  <button type="submit" class="btn btn-primary">Send </button>
+               </form>
+               {{/if}}
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{/if}}
+</section>

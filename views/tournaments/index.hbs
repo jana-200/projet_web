@@ -1,0 +1,40 @@
+<section>
+  <!--Show futre tournaments -->
+  <h1>Upcomming Tournament</h1>
+
+  {{#if no_tournaments}}
+  <div class="container mt-5">
+      <div class="alert alert-warning text-center " role="alert">
+          <p>There are no future tournaments</p>
+      </div>
+    </div>
+  {{/if}}
+
+  {{#if tournaments_exist}}
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Tournament date</th>
+          <th>Number max of participants</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+        {{#each tournament_table}}
+
+          <tr>
+            <td><a href="/tournaments/details?tournament_id={{this.tournament_id}}">{{name}}</a></td>
+            <td>{{this.date_tournament}}</td>
+            <td>{{this.nb_max_participants}}</td>
+          </tr>
+        {{/each}}
+
+      </tbody>
+    </table>
+  {{/if}}
+
+</section>

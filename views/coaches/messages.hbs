@@ -1,0 +1,63 @@
+<section> 
+  {{#if session.coach}}
+  <table>
+    <thead>
+      <tr>
+        <th>sent from</th>
+        <th>message</th>
+        <th>response</th>
+        <th>time</th>
+      </tr>
+    </thead>
+
+    <tbody>
+       {{#each messages}}
+        <tr>
+          <td>{{sender_name}} {{sender_surname}} </td>
+          <td>{{message_text}} </td>
+          <td> 
+            <form action="/messages/replyTo" method="post">
+              <input type="hidden" name="message_id" value="{{message_id}}">
+              <input type="text" name="response" placeholder="Enter your response here">
+              <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+          </td>
+          <td>{{date_hour_message}} </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  {{else}}
+  <table>
+    <thead>
+      <tr>
+        <th>sent to</th>
+        <th>message</th>
+        <th>response</th>
+        <th>time</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each messages}}
+        <tr>
+          <td>{{receiver_name}} {{receiver_surname}}</td>
+          <td>{{message_text}} </td>
+          {{#if response_text}}
+            <td>{{response_text}} </td>
+          {{else}}
+            <td>aucune réponse </td>
+          {{/if}}
+            <td>{{date_hour_message}} </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+
+  {{/if}}
+
+
+
+</section>

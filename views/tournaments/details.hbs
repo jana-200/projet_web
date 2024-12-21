@@ -1,0 +1,73 @@
+<!-- Shows the details of a specific tournament -->
+
+{{#if session.id_exists}}
+
+  <section>
+    <div class="frame">
+
+      <h1>Tournament details</h1>
+      <p>Name : {{tournament_detail.name}} </p>
+      <p>Date : {{tournament_detail.date_tournament}}</p>
+      <p> Coach : {{tournament_detail.firstname}}</p>
+
+      <p>Already registered : {{number.number_of_registration}}</p>
+
+      <p>Limit of participants : {{tournament_detail.nb_max_participants}} </p>
+
+      {{#if session.user}}
+
+        {{#if session.future_date}}
+
+          {{#if session.is_registered}}
+
+            <form action="/tournaments/unregister" method="post">
+              <input
+                type="hidden"
+                name="id"
+                value={{tournament_detail.tournament_id}}
+              />
+              <input type="submit" value="unregister" />
+
+            </form>
+
+          {{else}}
+            {{#if session.participants_number}}
+
+              <form action="/tournaments/register" method="post">
+                <input
+                  type="hidden"
+                  name="id"
+                  value={{tournament_detail.tournament_id}}
+                />
+                <input type="submit" value="Register" />
+              </form>
+
+            {{/if}}
+
+          {{/if}}
+
+        {{/if}}
+      {{/if}}
+
+      <img
+        id="image_tournament_details"
+        src="{{tournament_detail.banner_image_path}}"
+        alt="image table"
+      />
+    </div>
+
+  </section>
+{{/if}}
+
+<section>
+  {{#if session.error_id}}
+
+    <div class="container mt-5">
+      <div class="alert alert-warning text-center" role="alert">
+        <p>{{session.error_id}}</p>
+      </div>
+    </div>
+
+  {{/if}}
+
+</section>

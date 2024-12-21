@@ -1,0 +1,66 @@
+<section>
+    {{#if session.mistakes}}
+    <div class="container mt-5">
+        <div class="alert alert-warning text-center" role="alert">
+            {{#each error }}
+            <p>{{this}} </p> 
+            {{/each}}     
+        </div>
+    </div>
+    
+    
+    {{else}}
+
+<h4> Courts Update page </h4>
+
+<form method="post" action="/courts/update" enctype="multipart/form-data">
+
+<label for="courtName"> Court name : </label>
+<input name="courtName"type="text" placeholder="{{OldValuesDetails.courtName}}">
+<br>
+
+<label for="FlooringType"> Flooring type : </label>
+<select name="FlooringType" placeholder="{{OldValuesDetails.flooringType}}">
+<option>grass</option>
+<option >clay</option>
+<option>artificial</option>
+</select>
+<br>
+
+<label for="courtLocation"> Court location : </label>
+<input name="courtLocation"type="text" placeholder="{{OldValuesDetails.courtLocation}}">
+<br>
+
+<div>
+<label for="courtPicture"> Court picture path : </label>
+ <input name="courtPicture" type="file" >
+<input name="oldPicture"type="hidden"value={{OldValuesDetails.picturePath}}>
+ </div> 
+
+<input name="nameCourt"type="hidden"value={{OldValuesDetails.courtName}}>
+<input name="locationCourt"type="hidden"value={{OldValuesDetails.courtLocation}}>
+<input name="courtId"type="hidden"value={{OldValuesDetails.court_id}}>
+<input type="submit" value="Send">
+</form>
+
+{{#if errors}}
+  <div class="container mt-5">
+        <div class="alert alert-warning text-center" role="alert">
+            {{#each errors}}
+            <p>{{this}}</p>
+             {{/each}}  
+        </div>
+    </div>
+{{/if}}
+ 
+
+{{/if}}
+
+
+{{#if session.error}}
+        {{#each session.error }}
+            <p> {{this}}</p>
+        {{/each}}
+    {{/if}}
+
+</section>

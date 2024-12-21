@@ -1,0 +1,36 @@
+
+<section>
+
+  {{#if session.cantUpdate}}
+
+  <div class="container mt-5">
+    <div class="alert alert-warning text-center" role="alert">
+      <p> {{session.cantUpdate}} </p>
+    </div>
+  </div>
+
+  {{else}}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <form action="/coaches/updateBio" method="post" enctype="multipart/form-data" class="my-5">
+     
+
+          <div class="form-group">
+            <label for="picture">Picture:</label><br>
+            <img src="{{coach.pic}}" alt="coach picture" class="img-thumbnail mb-2" width="100"><br>
+            <input type="file" name="imageCoach" class="form-control-file">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="biography">Biography:</label>
+            <textarea id="biography" name="biography" rows="4" class="form-control">{{coach.bio}}</textarea>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+</section>
